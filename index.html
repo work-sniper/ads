@@ -1,17 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>work sniper</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Split Screen Links Example</title>
+  <style>
+    /* تحديد نمط تقسيم الشاشة */
+    .split-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      height: 100vh;
+      width: 100vw;
+    }
+
+    /* تحديد سمات الإطار */
+    .frame {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+    }
+  </style>
 </head>
-<body style="background:black;">
-         <center>
-         	  <a href="https://cutt.ly/swYrWno9">
-       <img src="https://www9.0zz0.com/2023/10/20/09/551708528.png" style="width:40%;height:28%;"> 
-         </a>
-    </center>
+<body>
+
+<!-- عنصر الرابط -->
+<a href="javascript:void(0);" onclick="splitScreen()">فتح الروابط</a>
+
+<!-- تحديد الشاشة إلى 4 أقسام -->
+<div class="split-container" id="splitContainer">
+  <!-- إطار المحتوى الأول -->
+  <div id="frame1" class="frame"></div>
+  <!-- إطار المحتوى الثاني -->
+  <div id="frame2" class="frame"></div>
+  <!-- إطار المحتوى الثالث -->
+  <div id="frame3" class="frame"></div>
+  <!-- إطار المحتوى الرابع -->
+  <div id="frame4" class="frame"></div>
+</div>
+
+<script>
+function splitScreen() {
+  // الروابط التي تريد فتحها
+  var links = [
+    'https://work-sniper.com',
+    'https://youtube.com',
+    'https://xnxx.tv',
+    'https://arabsex.com'
+  ];
+
+  // قسم الشاشة إلى 4 أقسام
+  var splitContainer = document.getElementById('splitContainer');
+  splitContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+  splitContainer.style.gridTemplateRows = 'repeat(2, 1fr)';
+
+  // عرض محتوى الروابط في كل إطار
+  for (var i = 0; i < links.length; i++) {
+    var frame = document.getElementById('frame' + (i + 1));
+    frame.innerHTML = '<iframe src="' + links[i] + '" width="100%" height="100%" frameborder="0"></iframe>';
+  }
+}
+</script>
+
 </body>
 </html>
