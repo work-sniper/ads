@@ -3,35 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تأخير فتح 4 روابط</title>
+  <title>جلب محتوى الروابط بتأخير</title>
 </head>
 <body>
 
-<!-- العنصر a الذي يفتح 4 روابط بتأخير -->
-<a href="#" onclick="openMultipleLinks()">تأخير فتح 4 روابط</a>
+<!-- العنصر a الذي يفتح 5 روابط بتأخير -->
+<a href="#" onclick="openMultipleLinks()">تأخير فتح 5 روابط</a>
 
-<!-- عنصر لعرض محتوى الصفحة -->
-<div id="content"></div>
+<!-- عناصر div لعرض محتوى الصفحة -->
+<div id="content1"></div>
+<div id="content2"></div>
+<div id="content3"></div>
+<div id="content4"></div>
+<div id="content5"></div>
 
-<!-- سكريبت جافا سكريبت لتأخير فتح الروابط -->
+<!-- سكريبت جافا سكريبت لتأخير فتح الروابط باستخدام AJAX -->
 <script>
   function openMultipleLinks() {
-    // قم بتأخير فتح الروابط
-    setTimeout(function() {
-      window.location.href = 'https://work-sniper.com';
-    }, 4000); // تأخير 1000 مللي ثانية (1 ثانية)
+    // جلب محتوى الروابط بتأخير
+    fetchAndDisplay('https://work-sniper.com', 'content1', 0);
+    fetchAndDisplay('https://https://www.toprevenuegate.com/sjphgy40?key=e0588c577af29dd9e75f59e3b637abf3', 'content2', 1000);
+    fetchAndDisplay('https://https://www.toprevenuegate.com/sjphgy40?key=e0588c577af29dd9e75f59e3b637abf3', 'content3', 1000);
+    fetchAndDisplay('https://https://www.toprevenuegate.com/sjphgy40?key=e0588c577af29dd9e75f59e3b637abf3', 'content4', 1000);
+    fetchAndDisplay('https://https://www.toprevenuegate.com/sjphgy40?key=e0588c577af29dd9e75f59e3b637abf3', 'content5', 1000);
+  }
 
+  function fetchAndDisplay(url, targetId, delay) {
+    // تأخير بفترة زمنية معينة
     setTimeout(function() {
-      window.location.href = 'https://https://fast.com';
-    }, 8000); // تأخير إضافي بعد 1 ثانية
-
-    setTimeout(function() {
-      window.location.href = 'https://propush.me';
-    }, 12000); // تأخير إضافي بعد 2 ثانية
-
-    setTimeout(function() {
-      window.location.href = 'https://canva.com';
-    }, 16000); // تأخير إضافي بعد 3 ثواني
+      // جلب محتوى الرابط باستخدام fetch
+      fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          // عرض محتوى الصفحة في العنصر المحدد
+          document.getElementById(targetId).innerHTML = data;
+        });
+    }, delay);
   }
 </script>
 
