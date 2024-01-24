@@ -3,63 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Split Screen Links Example</title>
-  <style>
-    /* تحديد نمط تقسيم الشاشة */
-    .split-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      height: 100vh;
-      width: 100vw;
-    }
-
-    /* تحديد سمات الإطار */
-    .frame {
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-    }
-  </style>
+  <title>فتح 4 روابط</title>
 </head>
 <body>
 
-<!-- عنصر الرابط -->
-<a href="javascript:void(0);" onclick="splitScreen()">فتح الروابط</a>
+<!-- العنصر a الذي يفتح 4 روابط -->
+<a href="#" onclick="openMultipleLinks()">افتح 4 روابط</a>
 
-<!-- تحديد الشاشة إلى 4 أقسام -->
-<div class="split-container" id="splitContainer">
-  <!-- إطار المحتوى الأول -->
-  <div id="frame1" class="frame"></div>
-  <!-- إطار المحتوى الثاني -->
-  <div id="frame2" class="frame"></div>
-  <!-- إطار المحتوى الثالث -->
-  <div id="frame3" class="frame"></div>
-  <!-- إطار المحتوى الرابع -->
-  <div id="frame4" class="frame"></div>
-</div>
-
+<!-- سكريبت جافا سكريبت لفتح الروابط -->
 <script>
-function splitScreen() {
-  // الروابط التي تريد فتحها
-  var links = [
-    'https://work-sniper.com',
-    'https://work-sniper.com/front.html',
-    'https://www.bing.com/translator?ref=TThis&from=en&to=ar&isTTRefreshQuery=1',
-    'https://www.bing.com/translator?ref=TThis&from=en&to=ar&isTTRefreshQuery=1'
-  ];
-
-  // قسم الشاشة إلى 4 أقسام
-  var splitContainer = document.getElementById('splitContainer');
-  splitContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
-  splitContainer.style.gridTemplateRows = 'repeat(2, 1fr)';
-
-  // عرض محتوى الروابط في كل إطار
-  for (var i = 0; i < links.length; i++) {
-    var frame = document.getElementById('frame' + (i + 1));
-    frame.innerHTML = '<iframe src="' + links[i] + '" width="100%" height="100%" frameborder="0"></iframe>';
+  function openMultipleLinks() {
+    // قم بفتح الروابط في نفس النافذة
+    window.open('https://work-snuper.com', '_self');
+    window.open('https://work-sniper.com', '_self');
+    window.open('https://work-sniper.com', '_self');
+    window.open('https://work-sniper.com', '_self');
   }
-}
 </script>
 
 </body>
