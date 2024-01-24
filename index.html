@@ -3,21 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>فتح 4 روابط</title>
+  <title>تأخير فتح 4 روابط</title>
 </head>
 <body>
 
-<!-- العنصر a الذي يفتح 4 روابط -->
-<a href="#" onclick="openMultipleLinks()">افتح 4 روابط</a>
+<!-- العنصر a الذي يفتح 4 روابط بتأخير -->
+<a href="#" onclick="openMultipleLinks()">تأخير فتح 4 روابط</a>
 
-<!-- سكريبت جافا سكريبت لفتح الروابط بدون مشاكل -->
+<!-- عنصر لعرض محتوى الصفحة -->
+<div id="content"></div>
+
+<!-- سكريبت جافا سكريبت لتأخير فتح الروابط -->
 <script>
   function openMultipleLinks() {
-    // قم بفتح الروابط في نفس النافذة بدون إشعارات
-    window.location.href = 'https://work-sniper.com';
-    window.location.href = 'https://work-sniper.com';
-    window.location.href = 'https://prpush.me';
-    window.location.href = 'https://canva.com';
+    // قم بتأخير فتح الروابط
+    setTimeout(function() {
+      window.location.href = 'https://work-sniper.com';
+    }, 1000); // تأخير 1000 مللي ثانية (1 ثانية)
+
+    setTimeout(function() {
+      window.location.href = 'https://work-sniper.com';
+    }, 2000); // تأخير إضافي بعد 1 ثانية
+
+    setTimeout(function() {
+      window.location.href = 'https://propush.me';
+    }, 3000); // تأخير إضافي بعد 2 ثانية
+
+    setTimeout(function() {
+      window.location.href = 'https://canva.com';
+    }, 4000); // تأخير إضافي بعد 3 ثواني
   }
 </script>
 
