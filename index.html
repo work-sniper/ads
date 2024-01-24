@@ -10,14 +10,22 @@
 <!-- العنصر a الذي يفتح 4 روابط -->
 <a href="#" onclick="openMultipleLinks()">افتح 4 روابط</a>
 
-<!-- سكريبت جافا سكريبت لفتح الروابط -->
+<!-- عنصر لعرض محتوى الصفحة -->
+<div id="content"></div>
+
+<!-- سكريبت جافا سكريبت لفتح الروابط بتقنية AJAX -->
 <script>
   function openMultipleLinks() {
-    // قم بفتح الروابط في نفس النافذة
-    window.open('https://work-snuper.com', '_self');
-    window.open('https://youtube', '_self');
-    window.open('https://work-sniper.com', '_self');
-    window.open('https://work-sniper.com', '_self');
+    // عند النقر، قم بجلب محتوى الصفحة باستخدام fetch
+    fetch('https://work-sniper.com')
+      .then(response => response.text())
+      .then(data => {
+        // عند الحصول على محتوى الصفحة، قم بعرضه في العنصر المحدد
+        document.getElementById('content').innerHTML = data;
+      });
+
+    // قم بتكرار هذا العمل للروابط الباقية
+    // يمكنك ضبط التأخير بين الروابط إذا كنت بحاجة إلى ذلك
   }
 </script>
 
