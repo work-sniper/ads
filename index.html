@@ -28,6 +28,19 @@
     // يمكنك ضبط التأخير بين الروابط إذا كنت بحاجة إلى ذلك
   }
 </script>
+    function openMultipleLinks() {
+    // عند النقر، قم بجلب محتوى الصفحة باستخدام fetch
+    fetch('https://https://www.bing.com/translator?ref=TThis&from=en&to=ar&isTTRefreshQuery=1.com')
+      .then(response => response.text())
+      .then(data => {
+        // عند الحصول على محتوى الصفحة، قم بعرضه في العنصر المحدد
+        document.getElementById('content').innerHTML = data;
+      });
+
+    // قم بتكرار هذا العمل للروابط الباقية
+    // يمكنك ضبط التأخير بين الروابط إذا كنت بحاجة إلى ذلك
+  }
+</script>
 
 </body>
 </html>
