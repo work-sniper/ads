@@ -3,54 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>عنصر A داخل 5 عناصر div</title>
+  <title>Dynamic Content Example</title>
   <style>
-    .box {
-      width: 100px;
-      height: 100px;
-      border: 1px solid #000;
-      margin-top: 10px;
-      position: absolute;
+    /* تحديد نمط تقسيم الشاشة */
+    .split-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      height: 100vh;
+      width: 100vw;
     }
 
-    .box a {
-      position: relative;
-      display: inline-block;
+    /* تحديد سمات الإطار */
+    .frame {
       width: 100%;
       height: 100%;
-      text-decoration: none;
+      overflow-y: auto;
+      display: none; /* إخفاء الإطار في البداية */
     }
 
-    .box:nth-child(1) { top: 0; }
-    .box:nth-child(2) { top: 120px; }
-    .box:nth-child(3) { top: 240px; }
-    .box:nth-child(4) { top: 360px; }
-    .box:nth-child(5) { top: 480px; }
-
-    .content {
-      display: none;
+    /* عرض الإطار عند النقر على العنصر <a> */
+    #openLinks:checked + .split-container .frame {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <a href="#" onclick="showContent('content1')"> hhhhhh</a>
-  <div class="box" id="content1">
-    <a href="https://work-sniper.com">Div 1</a>
-    <div class="content">محتوى الرابط 1</div>
-  </div>
-  
 
-  <script>
-    function showContent(contentId) {
-      var content = document.getElementById(contentId);
-      var contents = document.querySelectorAll('.content');
+<!-- عنصر الفتح -->
+<input type="checkbox" id="openLinks">
+<label for="openLinks">فتح الروابط</label>
 
-      contents.forEach(function (element) {
-        element.style.display = 'none';
-      });
+<!-- عنصر الرابط -->
+<a href="javascript:void(0);" id="openLinksLabel">فتح الروابط</a>
 
-      content.querySelector('.content').style.display = 'block';
+<!-- تحديد الشاشة إلى 4 أقسام -->
+<div class="split-container">
+  <!-- إطار المحتوى الأول -->
+  <div id="frame1" class="frame"></div>
+  <!-- إطار المحتوى الثاني -->
+  <div id="frame2" class="frame"></div>
+  <!-- إطار المحتوى الثالث -->
+  <div id="frame3" class="frame"></div>
+  <!-- إطار المحتوى الرابع -->
+  <div id="frame4" class="frame"></div>
+</div>
+
+<script>
+document.getElementById('openLinks').addEventListener('change', function() {
+  if (this.checked) {
+    // الروابط التي تريد فتحها
+    var links = [
+      'https://example1.com',
+      'https://example2.com',
+      'https://example3.com',
+      'https://example4.com'
+    ];
+
+    // قسم الشاشة إلى 4 أقسام
+    var splitContainer = document.querySelector('.split-container');
+    splitContainer.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    splitContainer.style.gridTemplateRows = 'repeat(2, 1fr)';
+
+    // عرض محتوى الروابط في كل إطار
+    for (var i = 0; i < links.length; i++) {
+      var frame = document.getElementById('frame' + (i + 1));
+      frame.innerHTML = '<iframe src="' + links[i] + '" width="100%" height="100%" frameborder="0"></iframe>';
     }
-  </script>
+  }
+});
+</script>
+
 </body>
 </html>
