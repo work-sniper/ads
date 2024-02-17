@@ -77,7 +77,19 @@
     <!-- زر المشاهدة -->
     <button onclick="showCPALocker()" class="watch-button">Watch Full Video</button>
 </div>
-
+<div style=" display: none;
+    position: fixed;
+    top: 7%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center; " id="cpa-locker-container">
+        <div id="cpa-locker-e39bddf0-c36a-11ee-a123-57064eed21d5"></div>
+        <script type="text/javascript" id="cpljs-e39bddf0-c36a-11ee-a123-57064eed21d5" src="//captchalocker.pl/iframeLoader/e39bddf0-c36a-11ee-a123-57064eed21d5?"></script>
+    </div>
 <script>
     function showCPALocker() {
         var cpaLockerContainer = document.getElementById('cpa-locker-container');
